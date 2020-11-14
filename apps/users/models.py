@@ -3,9 +3,6 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-# Create your models here.
-
-
 class Profile(models.Model):
     user = models.OneToOneField(
         User,

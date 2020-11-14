@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.validators import FileExtensionValidator
 
+from apps.categories.models import Categories
 from apps.products.validators import validate_sku
 
 
@@ -36,7 +37,7 @@ class Products(models.Model):
         default=True,
     )
 
-    # category = models.ManyToManyField(Categories)
+    category = models.ManyToManyField(Categories)
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
