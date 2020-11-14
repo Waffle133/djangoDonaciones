@@ -37,7 +37,7 @@ class Products(models.Model):
         default=True,
     )
 
-    category = models.ManyToManyField(Categories)
+    categories = models.ManyToManyField(Categories)
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
