@@ -13,9 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import requests
 from django.contrib import admin
 from django.urls import path
 
+# from django.http import JsonResponse
+
+from apps.products import views as products_views
+
+# def challenge(request, todo_id, lorem):
+#     response = requests.get(f'https://jsonplaceholder.typicode.com/todos/{todo_id}')
+#     todos = response.json()
+#     data = {
+#         'status': 'ok',
+#         'message': 'sucess',
+#         'todos': todos
+#     }
+#     return JsonResponse(data, safe=False)
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('challenge/<int:todo_id>/<str:lorem>', challenge, name='challenge')
+
+    path('products/', products_views.show_products)
+
 ]
